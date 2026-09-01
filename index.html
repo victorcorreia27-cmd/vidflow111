@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidFlow - Streaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="resetarVisao()">
+            <span>▶</span> VidFlow
+        </div>
+        
+        <div class="busca-container">
+            <input type="text" id="campoBusca" placeholder="Pesquisar vídeo ou canal...">
+            <button id="btnBusca">🔍</button>
+        </div>
+
+        <div class="header-acoes">
+            <button class="btn-add" onclick="abrirModal()">+ Enviar Vídeo</button>
+            <button class="btn-icon" onclick="abrirModalConfig()" title="Configurações">⚙️</button>
+            <button class="btn-conta" id="btnConta" onclick="abrirModalConta()">Entrar</button>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <button class="side-item ativo" onclick="filtrarCategoria('Tudo', this)">
+                <span class="icon">🏠</span> <span class="label">Início</span>
+            </button>
+            <button class="side-item" onclick="filtrarCategoria('Programação', this)">
+                <span class="icon">💻</span> <span class="label">Programação</span>
+            </button>
+            <button class="side-item" onclick="filtrarCategoria('Jogos', this)">
+                <span class="icon">🎮</span> <span class="label">Jogos</span>
+            </button>
+            <button class="side-item" onclick="filtrarCategoria('Música', this)">
+                <span class="icon">🎵</span> <span class="label">Música</span>
+            </button>
+            <button class="side-item" onclick="filtrarCategoria('Debates', this)">
+                <span class="icon">🗣️</span> <span class="label">Debates</span>
+            </button>
+            <button class="side-item" onclick="filtrarCategoria('Podcasts', this)">
+                <span class="icon">🎙️</span> <span class="label">Podcasts</span>
+            </button>
+        </aside>
+
+        <main class="conteudo-principal">
+            
+            <section class="player-container" id="playerDestaque">
+                <div class="player-wrapper">
+                    <video id="videoPrincipal" controls></video>
+                </div>
+                
+                <div class="player-info">
+                    <h2 id="tituloDestaque">Título do Vídeo</h2>
+                    
+                    <div class="player-bar-acoes">
+                        <div class="canal-detalhes">
+                            <img id="fotoCanalDestaque" src="" class="canal-img" alt="Canal">
+                            <div>
+                                <h4 id="canalDestaque">Nome do Canal</h4>
+                                <span>10 mil inscritos</span>
+                            </div>
+                            <button class="btn-inscrever" id="btnInscrever" onclick="alternarInscricao()">Inscrever-se</button>
+                        </div>
+
+                        <div class="interacao-botoes">
+                            <button class="btn-interacao" onclick="darLike()">
+                                👍 <span id="qtdLikes">0</span>
+                            </button>
+                            <button class="btn-interacao" onclick="fecharPlayer()">✕ Fechar</button>
+                        </div>
+                    </div>
+
+                    <div class="secao-comentarios">
+                        <h3>Comentários (<span id="totalComentarios">0</span>)</h3>
+                        <div class="novo-comentario">
+                            <input type="text" id="inComentario" placeholder="Adicione um comentário público...">
+                            <button class="btn-add" onclick="adicionarComentario()">Comentar</button>
+                        </div>
+                        <div class="lista-comentarios" id="listaComentarios"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid-videos" id="gridVideos"></section>
+        </main>
+    </div>
+
+    <!-- Modais -->
+    <div class="modal" id="modalAdd">
+        <div class="modal-content">
+            <h3>Enviar Novo Vídeo</h3>
+            <input type="text" id="inTitulo" placeholder="Título do Vídeo">
+            <input type="text" id="inCanal" placeholder="Nome do seu Canal">
+            <input type="text" id="inUrl" placeholder="URL do vídeo (.mp4)">
+            <select id="inCat">
+                <option value="Programação">Programação</option>
+                <option value="Jogos">Jogos</option>
+                <option value="Música">Música</option>
+                <option value="Debates">Debates</option>
+                <option value="Podcasts">Podcasts</option>
+            </select>
+            <div class="modal-acoes">
+                <button class="btn-interacao" onclick="fecharModais()">Cancelar</button>
+                <button class="btn-add" onclick="salvarVideo()">Publicar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalConta">
+        <div class="modal-content">
+            <h3>Entrar na sua Conta</h3>
+            <input type="text" id="inUsuario" placeholder="Nome de Usuário">
+            <input type="password" id="inSenha" placeholder="Senha">
+            <div class="modal-acoes">
+                <button class="btn-interacao" onclick="fecharModais()">Cancelar</button>
+                <button class="btn-add" onclick="fazerLogin()">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalConfig">
+        <div class="modal-content">
+            <h3>Configurações do Player</h3>
+            <label style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" id="chkAutoplay"> Reprodução automática ao selecionar
+            </label>
+            <div class="modal-acoes">
+                <button class="btn-add" onclick="fecharModais()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

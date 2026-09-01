@@ -1,0 +1,339 @@
+:root {
+    --bg-principal: #0f0f0f;
+    --bg-card: #1f1f1f;
+    --bg-hover: #272727;
+    --bg-input: #121212;
+    --azul-destaque: #3ea6ff;
+    --texto-principal: #ffffff;
+    --texto-secundario: #aaaaaa;
+    --borda: #303030;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--bg-principal);
+    z-index: 100;
+    border-bottom: 1px solid var(--borda);
+    height: 60px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--azul-destaque);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.busca-container {
+    display: flex;
+    width: 40%;
+    max-width: 600px;
+}
+
+.busca-container input {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--borda);
+    border-radius: 40px 0 0 40px;
+    color: var(--texto-principal);
+    outline: none;
+}
+
+.busca-container button {
+    padding: 10px 20px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda);
+    border-left: none;
+    border-radius: 0 40px 40px 0;
+    color: var(--texto-principal);
+    cursor: pointer;
+}
+
+.header-acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-add {
+    background-color: var(--azul-destaque);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--texto-principal);
+}
+
+.btn-conta {
+    background-color: transparent;
+    border: 1px solid var(--azul-destaque);
+    color: var(--azul-destaque);
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.app-layout {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 220px;
+    background-color: var(--bg-principal);
+    border-right: 1px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 4px;
+}
+
+.side-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+}
+
+.side-item:hover {
+    background-color: var(--bg-hover);
+}
+
+.side-item.ativo {
+    background-color: var(--bg-card);
+    font-weight: bold;
+}
+
+.conteudo-principal {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.player-container {
+    display: none;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid var(--borda);
+}
+
+.player-wrapper {
+    width: 100%;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.player-wrapper video {
+    width: 100%;
+    max-height: 480px;
+    display: block;
+}
+
+.player-info {
+    margin-top: 16px;
+}
+
+.player-bar-acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--borda);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.canal-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-inscrever {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-inscrever.inscrito {
+    background-color: var(--bg-hover);
+    color: var(--texto-secundario);
+}
+
+.interacao-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-interacao {
+    background-color: var(--bg-hover);
+    color: var(--texto-principal);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.secao-comentarios {
+    margin-top: 20px;
+}
+
+.novo-comentario {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0 20px 0;
+}
+
+.novo-comentario input {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    color: #fff;
+}
+
+.item-comentario {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--borda);
+    font-size: 14px;
+}
+
+.item-comentario strong {
+    color: var(--azul-destaque);
+}
+
+.grid-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card-video {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card-video:hover {
+    transform: translateY(-4px);
+}
+
+.thumb-box video {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-info {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    padding: 12px;
+}
+
+.canal-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.video-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.video-canal, .video-meta {
+    font-size: 12px;
+    color: var(--texto-secundario);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-content input, .modal-content select {
+    padding: 10px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
